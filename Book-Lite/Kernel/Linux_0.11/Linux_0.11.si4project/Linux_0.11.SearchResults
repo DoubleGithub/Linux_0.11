@@ -1,0 +1,19 @@
+---- DEF_INITSEG Matches (3 in 3 files) ----
+bootsect.S (D:\WorkSpace\KernelSource\Linux_0.11\Book-Lite\Kernel\linux-0.12\boot) line 37 : 
+BOOTSEG  = 0x07c0			! original address of boot-sector
+INITSEG  = DEF_INITSEG			! we move boot here - out of the way
+SETUPSEG = DEF_SETUPSEG			! setup starts here
+SYSSEG   = DEF_SYSSEG			! system loaded at 0x10000 (65536).
+ENDSEG   = SYSSEG + SYSSIZE		! where to stop loading
+config.h (D:\WorkSpace\KernelSource\Linux_0.11\Book-Lite\Kernel\linux-0.12\include\linux) line 13 : 
+/* Don't touch these, unless you really know what your doing. */
+#define DEF_INITSEG	0x9000
+#define DEF_SYSSEG	0x1000
+#define DEF_SETUPSEG	0x9020
+#define DEF_SYSSIZE	0x3000
+setup.S (D:\WorkSpace\KernelSource\Linux_0.11\Book-Lite\Kernel\linux-0.12\boot) line 17 : 
+
+INITSEG  = DEF_INITSEG	! we move boot here - out of the way
+SYSSEG   = DEF_SYSSEG	! system loaded at 0x10000 (65536).
+SETUPSEG = DEF_SETUPSEG	! this is the current segment
+
